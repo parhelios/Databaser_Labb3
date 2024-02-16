@@ -1,0 +1,112 @@
+﻿<UserControl
+    x:Class="Front.Views.AddQuizView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Front.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="SaddleBrown"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            Content="Quizzes in database"
+            FontSize="18"
+            Foreground="BlanchedAlmond" />
+        <ListView
+            Name="QuizzesInDbList"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Background="Transparent"
+            DisplayMemberPath="Title"
+            Foreground="BlanchedAlmond"
+            ItemsSource="{Binding QuizList}"
+            SelectedItem="{Binding SelectedQuiz, Mode=Default, UpdateSourceTrigger=PropertyChanged}" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Content="Name of new quiz"
+            FontSize="18"
+            Foreground="BlanchedAlmond" />
+        <StackPanel
+            Grid.Row="3"
+            Grid.RowSpan="3"
+            Grid.Column="1"
+            Grid.ColumnSpan="2">
+            <TextBox
+                Name="QuizTxt"
+                Height="30"
+                Background="Transparent" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Content="Quiz description"
+                FontSize="18"
+                Foreground="BlanchedAlmond" />
+            <TextBox
+                Name="QuizDescriptionTxt"
+                Height="30"
+                Background="Transparent" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="3">
+            <Button
+                Name="AddQuizBtn"
+                Width="150"
+                Height="50"
+                Margin="0,0,0,10"
+                HorizontalAlignment="Center"
+                Background="ForestGreen"
+                Click="AddQuizBtn_OnClick"
+                Content="Add Quiz"
+                FontFamily="Comic Sans MS"
+                FontSize="20"
+                FontWeight="Bold"
+                Foreground="Gold" />
+            <Button
+                Name="DeleteQuizBtn"
+                Width="150"
+                Height="50"
+                Margin="0,0,0,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Background="IndianRed"
+                Click="DeleteQuizBtn_OnClick"
+                Content="Delete Quiz"
+                FontFamily="Comic Sans MS"
+                FontSize="20" />
+            <Button
+                Name="ClearFieldsBtn"
+                Width="150"
+                Height="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Background="Yellow"
+                Click="ClearFieldsBtn_OnClick"
+                Content="Clear Fields"
+                FontFamily="Comic Sans MS"
+                FontSize="20" />
+        </StackPanel>
+    </Grid>
+</UserControl>
